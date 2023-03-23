@@ -1,9 +1,11 @@
 const express = require("express");
+const path = require("path");
 const app = express();
-const indexRouter = require("./routes/index");
-const port = 3000; // Or any other port you want to use
+const indexRouter = require("./routes/route.js");
+const port = 8000;
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/", indexRouter);
 
 app.listen(port, () => {
