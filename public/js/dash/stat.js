@@ -21,11 +21,13 @@ async function fetchStats() {
 async function updateStats() {
   const { totalUsers, maleUsers, femaleUsers } = await fetchStats();
 
-  const totalUsersElement = document.getElementById("total-users");
-  const genderStatsElement = document.getElementById("gender-stats");
+  const totalUsersStatsElement = document.querySelector(
+    "#total-users-stats h2"
+  );
+  const genderStatsElement = document.querySelector("#total-users-stats p");
 
-  totalUsersElement.textContent = `Total Users: ${totalUsers}`;
-  genderStatsElement.textContent = `Males: ${maleUsers}, Females: ${femaleUsers}`;
+  totalUsersStatsElement.textContent = `已扫描${totalUsers}人`;
+  genderStatsElement.textContent = `已扫描用户中,有${maleUsers}名男生, 有${femaleUsers}名女生`;
 }
 
 window.addEventListener("DOMContentLoaded", updateStats);

@@ -18,10 +18,17 @@ async function loadStats() {
   document.getElementById("stats").innerHTML = statHtml;
 }
 
+async function loadInsertFile() {
+  const response = await fetch("insertFile.html");
+  const insertFileHtml = await response.text();
+  document.getElementById("insert-file-container").innerHTML = insertFileHtml;
+}
+
 window.addEventListener("DOMContentLoaded", async () => {
   await loadNavbar();
   await loadDashboard();
-  await loadTable(); // Add this line to load the table on the default page
+  await loadTable(); // load the table on the default page
+  await loadInsertFile(); // load the insertFile content on the default page
 
   const navbarLinks = document.querySelectorAll("#sidebar-menu a");
   navbarLinks.forEach((link) => {

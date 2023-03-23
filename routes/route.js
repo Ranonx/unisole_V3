@@ -17,10 +17,10 @@ router.get("/table", (req, res) => {
 
 router.get("/data", (req, res) => {
   const query = "SELECT * FROM foot_data";
-  console.log(query);
+
   pool.query(query, (error, results) => {
     if (error) throw error;
-    res.send({ data: results }); 
+    res.send({ data: results });
   });
 });
 
