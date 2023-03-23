@@ -20,7 +20,7 @@ router.get("/data", (req, res) => {
   console.log(query);
   pool.query(query, (error, results) => {
     if (error) throw error;
-    res.send({ data: results }); // Send the data as a JSON object
+    res.send({ data: results }); 
   });
 });
 

@@ -1,7 +1,9 @@
-// table.js
-document.addEventListener("DOMContentLoaded", () => {
-  updateTable();
-});
+async function loadTable() {
+  const response = await fetch("/table");
+  const tableContent = await response.text();
+  document.getElementById("table").innerHTML = tableContent;
+  updateTable(); // Add this line to call the updateTable() function
+}
 
 async function updateTable() {
   // Fetch data from the /data route
